@@ -1,0 +1,11 @@
+one:
+  user_id: 1
+  place_id: 1
+  alias: MyString
+  rating: 1
+
+two:
+  user_id: 1
+  place_id: 1
+  alias: MyString
+  rating: 1

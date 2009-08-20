@@ -1,0 +1,45 @@
+<%- content_for :head do -%>
+<script src="http://www.google.com/jsapi?key=ABQIAAAAQ7MVoR2eIr03-e6D9r8yMBQcFBMI2uCUrftSjZkhrark-5O3gBRnGCsZg7Gm3d2VIgQLVd187H571Q" type="text/javascript"></script>
+<%- end -%>
+<%= javascript 'gmap' %>
+
+<div class="form box left">
+<% form_for @placemark do |f| %>
+  <%= error_messages_for :object => [@place, @placemark] %>
+  <p>
+    <%= f.label :alias, "Nickname (optional)" %><br />
+    <%= f.text_field :alias %>
+  </p>
+  <%- fields_for :place do |place| -%>
+  <p>
+    <%= place.label :name, "Original Name" %><br />
+    <%= place.text_field :name %>
+  </p>
+  <p>
+    <%= place.label :url, "URL" %><br />
+    <%= place.text_field :url %>
+  </p>
+  <p>
+    <%= place.label :address, "Address" %><br />
+    <%= place.text_field :address %>
+  </p>
+  <p>
+    <%= place.label :phone_number, "Phone Number (optional)" %><br />
+    <%= place.text_field :phone_number %>
+  </p>
+  <%- end -%>
+  <p>
+    <%= f.label :rating , "Rating (optional)" %><br />
+    <%= f.text_field :rating %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+</div>
+
+<div id="search_box" class="right">
+  <h3>Suggested Results</h3>
+  <div id="search_control">Loading...</div>
+  <div id="searchresults"></div>
+</div>
+
+<div class="clear"></div>

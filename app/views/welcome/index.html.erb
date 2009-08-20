@@ -1,0 +1,34 @@
+<% title "i.like.here", false %>
+
+<%- if current_user -%>
+
+<h1>My Favorite Places</h1>
+<table>
+  <colgroup>
+    <col style="width: 200px" />
+    <col style="width: 300px" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>address</th>
+    </tr>
+  </thead>
+<%- for placemark in current_user.placemarks -%>
+  <tbody>
+    <tr>
+      <td><%= link_to placemark.name, edit_placemark_path(placemark) %></td>
+      <td><%= h placemark.address %></td>
+    </tr>
+  </tbody>
+<%- end -%>
+</table>
+
+<%= render :partial => "partials/bookmark" %>
+
+<%- else -%>
+
+<h1>Start your journey!</h1>
+<p class="half_width mid_line">It's very simple, just <%= link_to "Sign up here", signup_url %> and start adding your favorite places by surfing around the web. Then you can share with your friends too!</p>
+
+<%- end -%>

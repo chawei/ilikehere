@@ -1,0 +1,140 @@
+p {
+  margin: 10px 0;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px 5px;
+  border-bottom: 1px solid #aaa;
+}
+
+td.actions {
+  text-align: right;
+}
+
+tr {
+  
+}
+
+/*** Header ***/
+
+#header {
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+#header .inner_box {
+  width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+}
+
+#logo {
+  font-family: Arial;
+  height: 30px;
+  font-size: 26px;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#logo a, #logo a:hover {
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: #fff;
+  text-decoration: none;
+}
+
+#login_bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+
+#menu {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  font-family: Arial;
+  width: 100%;
+  height: 20px;
+}
+
+#menu ul {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+#menu ul li {
+  padding: 0 10px 0;
+  float: left;
+  border-left: 1px solid #ccc;
+}
+
+
+
+
+
+/*** Placemarks ***/
+#search_box {
+  width: 300px;
+  padding: 0 15px;
+  background-color: #eee;
+  border-left: 1px solid #eee;
+}
+
+.result {
+  margin: 0 0 10px 0;
+}
+
+
+/*** Unclassified ***/
+#bookmark_box {
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+}
+
+/* User
+-------------------------*/
+#basic_info {
+  margin: 10px 0;
+}
+
+#recent_activities {
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+}
+
+/*** General ***/
+
+.box {
+   margin: 0 20px 0 0;
+}
+
+.form {
+   
+}
+
+.left {
+   float: left;
+}
+
+.right {
+   float: right;
+}
+
+.half_width {
+  width: 50%;
+}
+
+.mid_line {
+  line-height: 18px;
+}

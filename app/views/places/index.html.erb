@@ -1,0 +1,23 @@
+<% title "Places" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Address</th>
+    <th>Lat</th>
+    <th>Lng</th>
+  </tr>
+  <% for place in @places %>
+    <tr>
+      <td><%=h place.name %></td>
+      <td><%=h place.url %></td>
+      <td><%=h place.address %></td>
+      <td><%=h place.lat %></td>
+      <td><%=h place.lng %></td>
+      <td><%= link_to "Edit", edit_place_path(place) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Place", new_place_path %></p>

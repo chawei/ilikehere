@@ -1,0 +1,528 @@
+Google geocoding. Address: . Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name></name>
+  <Status>
+    <code>400</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: 
+Geocoder.us geocoding. Address: . Result: city:  state:  zip:  please supply an address as ?address=[address]<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>200 OK</title>
+</head><body>
+<h1>OK</h1>
+<p>Your browser sent a request that this server could not understand.<br />
+</p>
+<hr>
+<address>Apache/2.2.9 (Debian) mod_perl/2.0.4 Perl/v5.10.0 Server at geocoder.us Port 80</address>
+</body></html>
+geocoder.us was unable to geocode address: 
+  [4;36;1mUser Delete all (0.5ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Delete all (0.1ms)[0m   [0mDELETE FROM "users" WHERE 1=1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foobar') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foobar') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:03:00', 'foobar', 'e7f628d41b46d96b4faf6de06e29d0d55af10b79', '8fca6e4c0e19490a1af29d7a692c0d2ae6fc49a5', 'foo@example.com', '2009-08-19 19:03:00')[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'foobar') LIMIT 1[0m
+  [4;36;1mUser Delete all (0.4ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'nonexisting') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'nonexisting') LIMIT 1[0m
+  [4;35;1mUser Delete all (0.4ms)[0m   [0mDELETE FROM "users" WHERE 1=1[0m
+  [4;36;1mUser Delete all (0.1ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.1ms)[0m   [0mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:03:00', 'foo', 'da721541fc87e052763272565c0e501fb6238fac', '3b7dcac316e372e65e40ac7405853ec71664b9b7', 'foo@bar.com', '2009-08-19 19:03:00')[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'foo@bar.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'foo@bar.com') LIMIT 1[0m
+  [4;36;1mUser Delete all (0.3ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Delete all (0.1ms)[0m   [0mDELETE FROM "users" WHERE 1=1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foobar') LIMIT 1[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foobar') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.1ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:03:00', 'foobar', '19ce3f50f26bd9a6cd95d1e9a4ad4e46a35ecd33', '66cffef5e9a874eb2f92554a4bc7ea2858cc1d41', 'foo@example.com', '2009-08-19 19:03:00')[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'foobar') LIMIT 1[0m
+  [4;36;1mUser Delete all (0.3ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.1ms)[0m   [0mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:03:00', 'foo', '9bafed18190fe2cb9d45d280b87a0ded50055577', '73a30c3c2eecc8b3ab05e63c02e75838f164b0c9', 'foo@example.com', '2009-08-19 19:03:00')[0m
+  [4;36;1mUser Delete all (0.5ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;35;1mUser Delete all (0.3ms)[0m   [0mDELETE FROM "users" WHERE 1=1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Delete all (0.2ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Delete all (0.2ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar@example.com') LIMIT 1[0m
+  [4;35;1mUser Delete all (0.2ms)[0m   [0mDELETE FROM "users" WHERE 1=1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Delete all (0.3ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'odd ^&(@)') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;35;1mUser Delete all (0.3ms)[0m   [0mDELETE FROM "users" WHERE 1=1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;36;1mUser Delete all (0.4ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'bar@example.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'bar@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.1ms)[0m   [0mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:03:00', 'foo', 'b3d1b5c5b32c0c9e49a80373a83ab5e8bc46cf11', 'e60a9d723a80cccc8cdec4e51073e7ad3d79855a', 'bar@example.com', '2009-08-19 19:03:00')[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'foo') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'bar@example.com') LIMIT 1[0m
+  [4;36;1mUser Delete all (0.2ms)[0m   [0;1mDELETE FROM "users" WHERE 1=1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'uniquename') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."username" = 'uniquename') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.1ms)[0m   [0mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:03:00', 'uniquename', '414156964b705891483761a254ddf2ea50d94853', '17dac6b8527ffa6c258f62827c9f7a892dec9d74', 'foo@example.com', '2009-08-19 19:03:00')[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'uniquename') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@example.com') LIMIT 1[0m
+
+
+Processing PlacemarksController#create (for 0.0.0.0 at 2009-08-19 15:03:02) [POST]
+  Parameters: {"action"=>"create", "controller"=>"placemarks"}
+Google geocoding. Address: . Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name></name>
+  <Status>
+    <code>400</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: 
+
+
+Processing PlacemarksController#create (for 0.0.0.0 at 2009-08-19 15:03:05) [POST]
+  Parameters: {"action"=>"create", "controller"=>"placemarks"}
+Google geocoding. Address: . Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name></name>
+  <Status>
+    <code>400</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: 
+  [4;36;1mPlacemark Load (0.3ms)[0m   [0;1mSELECT * FROM "placemarks" LIMIT 1[0m
+
+
+Processing PlacemarksController#edit (for 0.0.0.0 at 2009-08-19 15:03:09) [GET]
+  Parameters: {"action"=>"edit", "id"=>#<Placemark id: 953125641, user_id: 1, place_id: 1, rating: 1, alias: "MyString", created_at: "2009-08-19 19:03:02", updated_at: "2009-08-19 19:03:02">, "controller"=>"placemarks"}
+  [4;35;1mPlacemark Load (0.3ms)[0m   [0mSELECT * FROM "placemarks" WHERE ("placemarks"."id" = 953125641) [0m
+  [4;36;1mPlace Load (0.1ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering placemarks/edit
+
+
+Processing PlacemarksController#index (for 0.0.0.0 at 2009-08-19 15:03:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"placemarks"}
+  [4;35;1mPlacemark Load (0.5ms)[0m   [0mSELECT * FROM "placemarks" [0m
+Rendering template within layouts/application
+Rendering placemarks/index
+  [4;36;1mPlace Load (0.1ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+
+
+Processing PlacemarksController#new (for 0.0.0.0 at 2009-08-19 15:03:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"placemarks"}
+Rendering template within layouts/application
+Rendering placemarks/new
+Rendered placemarks/_form (2.5ms)
+Completed in 8ms (View: 8, DB: 0) | 200 OK [http://test.host/placemarks/new]
+  [4;35;1mPlacemark Load (0.3ms)[0m   [0mSELECT * FROM "placemarks" LIMIT 1[0m
+
+
+Processing PlacemarksController#update (for 0.0.0.0 at 2009-08-19 15:03:09) [PUT]
+  Parameters: {"action"=>"update", "id"=>#<Placemark id: 953125641, user_id: 1, place_id: 1, rating: 1, alias: "MyString", created_at: "2009-08-19 19:03:02", updated_at: "2009-08-19 19:03:02">, "controller"=>"placemarks"}
+  [4;36;1mPlacemark Load (0.4ms)[0m   [0;1mSELECT * FROM "placemarks" WHERE ("placemarks"."id" = 953125641) [0m
+Rendering template within layouts/application
+Rendering placemarks/edit
+  [4;35;1mPlacemark Load (0.3ms)[0m   [0mSELECT * FROM "placemarks" LIMIT 1[0m
+
+
+Processing PlacemarksController#update (for 0.0.0.0 at 2009-08-19 15:03:09) [PUT]
+  Parameters: {"action"=>"update", "id"=>#<Placemark id: 953125641, user_id: 1, place_id: 1, rating: 1, alias: "MyString", created_at: "2009-08-19 19:03:02", updated_at: "2009-08-19 19:03:02">, "controller"=>"placemarks"}
+  [4;36;1mPlacemark Load (0.3ms)[0m   [0;1mSELECT * FROM "placemarks" WHERE ("placemarks"."id" = 953125641) [0m
+  [4;35;1mPlace Load (0.1ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+
+
+Processing PlacesController#create (for 0.0.0.0 at 2009-08-19 15:03:09) [POST]
+  Parameters: {"action"=>"create", "controller"=>"places"}
+Rendering template within layouts/application
+Rendering places/new
+Rendered places/_form (3.3ms)
+Completed in 9ms (View: 6, DB: 1) | 200 OK [http://test.host/places]
+
+
+Processing PlacesController#create (for 0.0.0.0 at 2009-08-19 15:03:09) [POST]
+  Parameters: {"action"=>"create", "controller"=>"places"}
+  [4;36;1mPlace Create (0.4ms)[0m   [0;1mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES(NULL, '2009-08-19 19:03:09', NULL, NULL, NULL, NULL, NULL, '2009-08-19 19:03:09')[0m
+Redirected to http://test.host/places
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/places]
+  [4;35;1mPlace Load (0.3ms)[0m   [0mSELECT * FROM "places" LIMIT 1[0m
+
+
+Processing PlacesController#edit (for 0.0.0.0 at 2009-08-19 15:03:09) [GET]
+  Parameters: {"action"=>"edit", "id"=>#<Place id: 953125641, name: "MyString", url: "MyString", address: "MyString", phone_number: nil, lat: #<BigDecimal:2267b98,'0.999E1',8(8)>, lng: #<BigDecimal:22660cc,'0.999E1',8(8)>, created_at: "2009-08-19 19:03:02", updated_at: "2009-08-19 19:03:02">, "controller"=>"places"}
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 953125641) [0m
+Rendering template within layouts/application
+Rendering places/edit
+Rendered places/_form (2.2ms)
+Completed in 6ms (View: 5, DB: 1) | 200 OK [http://test.host/places/953125641/edit]
+
+
+Processing PlacesController#index (for 0.0.0.0 at 2009-08-19 15:03:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"places"}
+  [4;35;1mPlace Load (0.4ms)[0m   [0mSELECT * FROM "places" [0m
+Rendering template within layouts/application
+Rendering places/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://test.host/places]
+
+
+Processing PlacesController#new (for 0.0.0.0 at 2009-08-19 15:03:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"places"}
+Rendering template within layouts/application
+Rendering places/new
+Rendered places/_form (1.8ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://test.host/places/new]
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" LIMIT 1[0m
+
+
+Processing PlacesController#update (for 0.0.0.0 at 2009-08-19 15:03:09) [PUT]
+  Parameters: {"action"=>"update", "id"=>#<Place id: 953125641, name: "MyString", url: "MyString", address: "MyString", phone_number: nil, lat: #<BigDecimal:21d8ed4,'0.999E1',8(8)>, lng: #<BigDecimal:21d8e84,'0.999E1',8(8)>, created_at: "2009-08-19 19:03:02", updated_at: "2009-08-19 19:03:02">, "controller"=>"places"}
+  [4;35;1mPlace Load (0.3ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 953125641) [0m
+Rendering template within layouts/application
+Rendering places/edit
+Rendered places/_form (2.1ms)
+Completed in 5ms (View: 4, DB: 1) | 200 OK [http://test.host/places/953125641]
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" LIMIT 1[0m
+
+
+Processing PlacesController#update (for 0.0.0.0 at 2009-08-19 15:03:09) [PUT]
+  Parameters: {"action"=>"update", "id"=>#<Place id: 953125641, name: "MyString", url: "MyString", address: "MyString", phone_number: nil, lat: #<BigDecimal:21ac58c,'0.999E1',8(8)>, lng: #<BigDecimal:21ac550,'0.999E1',8(8)>, created_at: "2009-08-19 19:03:02", updated_at: "2009-08-19 19:03:02">, "controller"=>"places"}
+  [4;35;1mPlace Load (0.3ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 953125641) [0m
+Redirected to http://test.host/places
+Completed in 2ms (DB: 1) | 302 Found [http://test.host/places/953125641]
+
+
+Processing SessionsController#create (for 0.0.0.0 at 2009-08-19 15:03:09) [POST]
+  Parameters: {"action"=>"create", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://test.host/sessions]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+
+
+Processing SessionsController#create (for 0.0.0.0 at 2009-08-19 15:03:09) [POST]
+  Parameters: {"action"=>"create", "controller"=>"sessions"}
+Redirected to http://test.host/
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/sessions]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+
+
+Processing SessionsController#new (for 0.0.0.0 at 2009-08-19 15:03:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://test.host/login]
+
+
+Processing UsersController#create (for 0.0.0.0 at 2009-08-19 15:03:09) [POST]
+  Parameters: {"action"=>"create", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://test.host/users]
+
+
+Processing UsersController#create (for 0.0.0.0 at 2009-08-19 15:03:09) [POST]
+  Parameters: {"action"=>"create", "controller"=>"users"}
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:03:09', NULL, NULL, NULL, NULL, '2009-08-19 19:03:09')[0m
+Redirected to http://test.host/
+Completed in 3ms (DB: 0) | 302 Found [http://test.host/users]
+
+
+Processing UsersController#new (for 0.0.0.0 at 2009-08-19 15:03:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://test.host/signup]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090609194359)
+Migrating to CreateInvites (20090624182102)
+Migrating to CreatePlaces (20090708205223)
+Migrating to CreatePlacemarks (20090708205841)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("invites")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("placemarks")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("places")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:04:41', 'person1', '7afc01235319af3a8844da5725108c84b0bf1f15', '48685f81f0828b4b06af73fcc3afe547e0a0622e', 'person1@example.com', '2009-08-19 19:04:41')[0m
+Google geocoding. Address: 400 W 37st New York, NY. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>400 W 37st New York, NY</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>400 W 37th St, New York, NY 10018, USA</address>
+    <AddressDetails Accuracy="8" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>NY</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>New York</SubAdministrativeAreaName><Locality><LocalityName>New York</LocalityName><Thoroughfare><ThoroughfareName>400 W 37th St</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>10018</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="40.7589704" south="40.7526752" east="-73.9930363" west="-73.9993315" />
+    </ExtendedData>
+    <Point><coordinates>-73.9950010,40.7554170,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mPlace Create (0.4ms)[0m   [0mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('Good Restaurant', '2009-08-19 19:04:41', 'http://goodrestaurant.com', NULL, -73.995001, '400 W 37st New York, NY', 40.755417, '2009-08-19 19:04:41')[0m
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 996332878) [0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+Google geocoding. Address: 400 W 37st New York, NY. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>400 W 37st New York, NY</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>400 W 37th St, New York, NY 10018, USA</address>
+    <AddressDetails Accuracy="8" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>NY</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>New York</SubAdministrativeAreaName><Locality><LocalityName>New York</LocalityName><Thoroughfare><ThoroughfareName>400 W 37th St</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>10018</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="40.7589704" south="40.7526752" east="-73.9930363" west="-73.9993315" />
+    </ExtendedData>
+    <Point><coordinates>-73.9950010,40.7554170,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;36;1mPlace Create (0.5ms)[0m   [0;1mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('Good Restaurant', '2009-08-19 19:06:45', 'http://goodrestaurant.com', NULL, -73.995001, '400 W 37st New York, NY', 40.755417, '2009-08-19 19:06:45')[0m
+  [4;35;1mPlace Load (0.3ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 996332879) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:14:32', 'person1', '2ae0397eae1e317c0cebff4933cfd7eabd0b2993', '8c6008d464c743e8af594e70d90f2337d6568c3a', 'person1@example.com', '2009-08-19 19:14:32')[0m
+Google geocoding. Address: 400 W 37st New York, NY. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>400 W 37st New York, NY</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>400 W 37th St, New York, NY 10018, USA</address>
+    <AddressDetails Accuracy="8" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>NY</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>New York</SubAdministrativeAreaName><Locality><LocalityName>New York</LocalityName><Thoroughfare><ThoroughfareName>400 W 37th St</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>10018</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="40.7589704" south="40.7526752" east="-73.9930363" west="-73.9993315" />
+    </ExtendedData>
+    <Point><coordinates>-73.9950010,40.7554170,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mPlace Create (0.5ms)[0m   [0mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('Good Restaurant', '2009-08-19 19:14:32', 'http://goodrestaurant.com', NULL, -73.995001, '400 W 37st New York, NY', 40.755417, '2009-08-19 19:14:32')[0m
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:14:43', 'person1', 'b0ecdd7170a57957352069be0b2b36bdc827f089', 'ab1f89007a3d9a69abd643664586ecb8029d1d59', 'person1@example.com', '2009-08-19 19:14:43')[0m
+Google geocoding. Address: 400 W 37st New York, NY. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>400 W 37st New York, NY</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>400 W 37th St, New York, NY 10018, USA</address>
+    <AddressDetails Accuracy="8" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>NY</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>New York</SubAdministrativeAreaName><Locality><LocalityName>New York</LocalityName><Thoroughfare><ThoroughfareName>400 W 37th St</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>10018</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="40.7589704" south="40.7526752" east="-73.9930363" west="-73.9993315" />
+    </ExtendedData>
+    <Point><coordinates>-73.9950010,40.7554170,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mPlace Create (0.5ms)[0m   [0mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('Good Restaurant', '2009-08-19 19:14:43', 'http://goodrestaurant.com', NULL, -73.995001, '400 W 37st New York, NY', 40.755417, '2009-08-19 19:14:43')[0m
+  [4;36;1mPlace Load (0.4ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 19:17:35', 'person1', '68e0eeb9f4e86ef407dcfdc87677eda1abb77303', '65168174282202a79bc341e55550138ccf6e66e6', 'person1@example.com', '2009-08-19 19:17:35')[0m
+Google geocoding. Address: 400 W 37st New York, NY. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>400 W 37st New York, NY</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>400 W 37th St, New York, NY 10018, USA</address>
+    <AddressDetails Accuracy="8" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>NY</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>New York</SubAdministrativeAreaName><Locality><LocalityName>New York</LocalityName><Thoroughfare><ThoroughfareName>400 W 37th St</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>10018</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="40.7589704" south="40.7526752" east="-73.9930363" west="-73.9993315" />
+    </ExtendedData>
+    <Point><coordinates>-73.9950010,40.7554170,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mPlace Create (0.4ms)[0m   [0mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('Good Restaurant', '2009-08-19 19:17:35', 'http://goodrestaurant.com', NULL, -73.995001, '400 W 37st New York, NY', 40.755417, '2009-08-19 19:17:35')[0m
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 20:54:17', 'person1', '540a2a87a50c01ba117e31d1e412ec7e3e404cae', 'c0a6f73a209a5579a9d2f7369bcf49afa7946b74', 'person1@example.com', '2009-08-19 20:54:17')[0m
+Google geocoding. Address: place address. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>place address</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Address Ln, Selma, AL 36703, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>AL</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Dallas</SubAdministrativeAreaName><Locality><LocalityName>Selma</LocalityName><Thoroughfare><ThoroughfareName>Address Ln</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>36703</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="32.4309000" south="32.4203960" east="-86.9010904" west="-86.9073856" />
+    </ExtendedData>
+    <Point><coordinates>-86.9035440,32.4258100,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p2">
+    <address>Address Ln, CA 92539, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Riverside</SubAdministrativeAreaName><Thoroughfare><ThoroughfareName>Address Ln</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>92539</PostalCodeNumber></PostalCode></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="33.4831406" south="33.4768454" east="-116.6328499" west="-116.6391451" />
+    </ExtendedData>
+    <Point><coordinates>-116.6360910,33.4797070,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mPlace Create (0.2ms)[0m   [0mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('place', '2009-08-19 20:54:17', 'http://place.com', NULL, -86.903544, 'place address', 32.42581, '2009-08-19 20:54:17')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(5, 1, '2009-08-19 20:54:17', 1, 'placemark', '2009-08-19 20:54:17')[0m
+  [4;35;1mPlacemark Create (0.1ms)[0m   [0mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(4, 1, '2009-08-19 20:54:17', 1, 'placemark', '2009-08-19 20:54:17')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(3, 1, '2009-08-19 20:54:17', 1, 'placemark', '2009-08-19 20:54:17')[0m
+  [4;35;1mPlacemark Load (0.4ms)[0m   [0mSELECT * FROM "placemarks" WHERE ("placemarks".place_id = 1) [0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 21:02:09', 'person1', '2a42d72aceec6bdac2fed274c006c4191bc2ba08', '2929f8d7dd98869bbfa95e6114aade1cb6e0a00e', 'person1@example.com', '2009-08-19 21:02:09')[0m
+Google geocoding. Address: place address. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>place address</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Address Ln, Selma, AL 36703, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>AL</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Dallas</SubAdministrativeAreaName><Locality><LocalityName>Selma</LocalityName><Thoroughfare><ThoroughfareName>Address Ln</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>36703</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="32.4309000" south="32.4203960" east="-86.9010904" west="-86.9073856" />
+    </ExtendedData>
+    <Point><coordinates>-86.9035440,32.4258100,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p2">
+    <address>Address Ln, CA 92539, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Riverside</SubAdministrativeAreaName><Thoroughfare><ThoroughfareName>Address Ln</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>92539</PostalCodeNumber></PostalCode></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="33.4831406" south="33.4768454" east="-116.6328499" west="-116.6391451" />
+    </ExtendedData>
+    <Point><coordinates>-116.6360910,33.4797070,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mPlace Create (0.2ms)[0m   [0mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('place', '2009-08-19 21:02:09', 'http://place.com', NULL, -86.903544, 'place address', 32.42581, '2009-08-19 21:02:09')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(0, 1, '2009-08-19 21:02:09', 1, 'placemark', '2009-08-19 21:02:09')[0m
+  [4;35;1mPlacemark Create (0.1ms)[0m   [0mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(0, 1, '2009-08-19 21:02:09', 1, 'placemark', '2009-08-19 21:02:09')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(4, 1, '2009-08-19 21:02:09', 1, 'placemark', '2009-08-19 21:02:09')[0m
+  [4;35;1mPlacemark Load (0.4ms)[0m   [0mSELECT * FROM "placemarks" WHERE ("placemarks".place_id = 1) [0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 21:03:17', 'person1', 'e7b8dc57bb633a214486634ab065c4f72b36d359', 'bb8634a714e9c1ebc68da43fd31eff78f9c0d6a0', 'person1@example.com', '2009-08-19 21:03:17')[0m
+Google geocoding. Address: place address. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>place address</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Address Ln, Selma, AL 36703, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>AL</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Dallas</SubAdministrativeAreaName><Locality><LocalityName>Selma</LocalityName><Thoroughfare><ThoroughfareName>Address Ln</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>36703</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="32.4309000" south="32.4203960" east="-86.9010904" west="-86.9073856" />
+    </ExtendedData>
+    <Point><coordinates>-86.9035440,32.4258100,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p2">
+    <address>Address Ln, CA 92539, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Riverside</SubAdministrativeAreaName><Thoroughfare><ThoroughfareName>Address Ln</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>92539</PostalCodeNumber></PostalCode></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="33.4831406" south="33.4768454" east="-116.6328499" west="-116.6391451" />
+    </ExtendedData>
+    <Point><coordinates>-116.6360910,33.4797070,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mPlace Create (0.2ms)[0m   [0mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('place', '2009-08-19 21:03:17', 'http://place.com', NULL, -86.903544, 'place address', 32.42581, '2009-08-19 21:03:17')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(1, 1, '2009-08-19 21:03:17', 1, 'placemark', '2009-08-19 21:03:17')[0m
+  [4;35;1mPlacemark Create (0.1ms)[0m   [0mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(4, 1, '2009-08-19 21:03:17', 1, 'placemark', '2009-08-19 21:03:17')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(4, 1, '2009-08-19 21:03:17', 1, 'placemark', '2009-08-19 21:03:17')[0m
+  [4;35;1mPlacemark Load (0.4ms)[0m   [0mSELECT * FROM "placemarks" WHERE ("placemarks".place_id = 1) [0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'person1') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'person1@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "username", "password_salt", "password_hash", "email", "created_at") VALUES('2009-08-19 21:03:38', 'person1', '5b41c085116a77640fbc86c8e37a4a62cf5fda10', 'b90833a7a3b136d329f1d80d149f8b2f2cacef00', 'person1@example.com', '2009-08-19 21:03:38')[0m
+Google geocoding. Address: place address. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>place address</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Address Ln, Selma, AL 36703, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>AL</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Dallas</SubAdministrativeAreaName><Locality><LocalityName>Selma</LocalityName><Thoroughfare><ThoroughfareName>Address Ln</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>36703</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="32.4309000" south="32.4203960" east="-86.9010904" west="-86.9073856" />
+    </ExtendedData>
+    <Point><coordinates>-86.9035440,32.4258100,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p2">
+    <address>Address Ln, CA 92539, USA</address>
+    <AddressDetails Accuracy="6" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Riverside</SubAdministrativeAreaName><Thoroughfare><ThoroughfareName>Address Ln</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>92539</PostalCodeNumber></PostalCode></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="33.4831406" south="33.4768454" east="-116.6328499" west="-116.6391451" />
+    </ExtendedData>
+    <Point><coordinates>-116.6360910,33.4797070,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;35;1mPlace Create (0.2ms)[0m   [0mINSERT INTO "places" ("name", "updated_at", "url", "phone_number", "lng", "address", "lat", "created_at") VALUES('place', '2009-08-19 21:03:39', 'http://place.com', NULL, -86.903544, 'place address', 32.42581, '2009-08-19 21:03:39')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(4, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;35;1mPlacemark Create (0.1ms)[0m   [0mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(1, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(2, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;35;1mPlacemark Create (0.1ms)[0m   [0mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(2, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(2, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;35;1mPlacemark Create (0.1ms)[0m   [0mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(4, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(5, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;35;1mPlacemark Create (0.1ms)[0m   [0mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(3, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;36;1mPlacemark Create (0.1ms)[0m   [0;1mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(0, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;35;1mPlacemark Create (0.1ms)[0m   [0mINSERT INTO "placemarks" ("rating", "place_id", "updated_at", "user_id", "alias", "created_at") VALUES(0, 1, '2009-08-19 21:03:39', 1, 'placemark', '2009-08-19 21:03:39')[0m
+  [4;36;1mPlacemark Load (1.0ms)[0m   [0;1mSELECT * FROM "placemarks" WHERE ("placemarks".place_id = 1) [0m
