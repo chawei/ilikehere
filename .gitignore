@@ -1,0 +1,15 @@
+.DS_Store  
+coverage/*  
+log/*.log  
+lib/tasks/rspec.rake  
+lib/tasks/cucumber.rake  
+db/*.db  
+db/*.sqlite3  
+db/schema.rb  
+db/sphinx  
+tmp/**/*  
+doc/api  
+doc/app  
+config/database.yml  
+config/*.sphinx.conf  
+coverage/*
