@@ -13,6 +13,12 @@ test:
   pool: 5
   timeout: 5000
 
+staging:
+  adapter: mysql
+  database: chawei_ilikeherestaging
+  username: chawei_here
+  password: ilike
+       
 production:
   adapter: sqlite3
   database: db/production.sqlite3

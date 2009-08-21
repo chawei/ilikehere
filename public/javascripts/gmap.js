@@ -50,13 +50,18 @@ function gotResults(sc, searcher)
   	{
   		var result = searcher.results[i];
   		var address = "";
-  		for (var j=0; j<result.addressLines.length; j++) {
-        address += result.addressLines[j]+" ";
+  		
+  		if (result.addressLines != undefined) {
+    		for (var j=0; j<result.addressLines.length; j++) {
+          address += result.addressLines[j]+" ";
+        }
       }
       resultContent += '<div class="result">';
-  		resultContent += '  <div id="name-'+i+'">'+result.title+'</div>';
+      if (result.title != undefined)
+  		  resultContent += '  <div id="name-'+i+'">'+result.title+'</div>';
   		resultContent += '  <div id="address-'+i+'" class="address">'+address+'</div>';
-  		resultContent += '  <div id="phone_number-'+i+'">'+result.phoneNumbers[0].number+'</div>';
+  		if (result.phoneNumbers != undefined)
+  		  resultContent += '  <div id="phone_number-'+i+'">'+result.phoneNumbers[0].number+'</div>';
   		resultContent += '</div>'
   	}
   	$j('#searchresults').html(resultContent);
