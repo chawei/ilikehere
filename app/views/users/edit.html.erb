@@ -1,0 +1,36 @@
+<% title "Edit your profile" %>
+
+<% form_for @user do |f| %>
+  <%= f.error_messages %>
+  <table class="edit_form">
+    <colgroup>
+      <col style="width: 200px" />
+      <col style="width: 200px" />
+    </colgroup>
+    <tr>
+      <th><%= f.label :preferred_location, "Preferred Location" %></th>
+      <td><%= f.text_field :preferred_location %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :first_name, "First Name" %></th>
+      <td><%= f.text_field :first_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :last_name, "Last Name" %></th>
+      <td><%= f.text_field :last_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password %></th>
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password_confirmation, "Confirm Password" %></th>
+      <td><%= f.password_field :password_confirmation %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= f.submit "Update" %></td>
+    </tr>
+  </table>
+
+<% end %>
