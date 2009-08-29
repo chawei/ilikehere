@@ -20,5 +20,17 @@
     <%= f.label :password_confirmation, "Confirm Password" %><br />
     <%= f.password_field :password_confirmation %>
   </p>
+  <p>
+    <%= f.label :preferred_location, "Preferred Location" %><br />
+    <%= f.text_field :preferred_location %>
+  </p>
+  <p>
+    <%= f.label :first_name, "First Name" %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name %>
+  </p>
   <p><%= f.submit "Sign up" %></p>
 <% end %>

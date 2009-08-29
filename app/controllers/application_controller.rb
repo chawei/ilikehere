@@ -3,7 +3,6 @@
 
 class ApplicationController < ActionController::Base
   include Authentication
-  include Geokit::Geocoders
   
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -11,11 +10,4 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
   
-  before_filter :set_geolocation
-  
-  def set_geolocation
-    ip_addr = request.env['REMOTE_ADDR']
-    location = IpGeocoder.geocode('ip_addr')
-    puts location
-  end
 end

@@ -1,9 +1,33 @@
-<% title "#{@current_user.username}'s Profile" %>
+<% title "#{@current_user.username}'s Profile", false %>
 
-<div id="basic_info">
-<%= @current_user.email %>
-</div>
+<div id="profile_page">
+  <div class="title">
+    <span class="username"><%= @current_user.username %></span>
+    <span class="full_name"> / <%= @current_user.full_name %></span>
+    <span><%= link_to "change", edit_profile_url %></span>
+  </div>
 
-<div id="recent_activities">
-  <h3>Recent Activities</h3>
+  <div id="basic_info">
+    <table class="info">
+      <colgroup>
+        <col style="width: 150px;"/>
+        <col style="width: 300px;"/>
+      </colgroup>
+      <tr>
+        <th>Your email</th>
+        <td><%= @current_user.email %></td>
+      </tr>
+      <tr>
+        <th>Preferred Location</th>
+        <td><%= @current_user.preferred_location %></td>
+      </tr>
+    </table>
+  </div>
+
+  <!--
+  <div id="recent_activities">
+    <h3>Recent Activities</h3>
+  </div>
+  -->
+  
 </div>

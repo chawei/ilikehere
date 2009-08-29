@@ -2,6 +2,10 @@ var retry_num_of = new Hash();
 
 google.load("search", "1");
 
+function getPreferredLocation() {
+  return $j("#preferred_location").text();
+}
+
 function OnLoad() {
   // Create a search control
   var searchControl = new google.search.SearchControl();
@@ -14,7 +18,7 @@ function OnLoad() {
   //searchControl.addSearcher(new google.search.BlogSearch());
 
   // Set the Local Search center point
-  localSearch.setCenterPoint("NY");
+  localSearch.setCenterPoint(getPreferredLocation());
 
   // Tell the searcher to draw itself and tell it where to attach
   searchControl.draw(document.getElementById("search_control"));
@@ -58,10 +62,10 @@ function gotResults(sc, searcher)
       }
       resultContent += '<div class="result">';
       if (result.title != undefined)
-  		  resultContent += '  <div id="name-'+i+'">'+result.title+'</div>';
-  		resultContent += '  <div id="address-'+i+'" class="address">'+address+'</div>';
+  		  resultContent += '  <div class="item"><span class="hidden_btn">replace Original Name</span><div id="name-'+i+'" class="content">'+result.title+'</div></div>';
+  		resultContent += '  <div class="item"><span class="hidden_btn">replace Address</span><div id="address-'+i+'" class="content">'+address+'</div></div>';
   		if (result.phoneNumbers != undefined)
-  		  resultContent += '  <div id="phone_number-'+i+'">'+result.phoneNumbers[0].number+'</div>';
+  		  resultContent += '  <div class="item"><span class="hidden_btn">replace Phone Number</span><div id="phone_number-'+i+'" class="content">'+result.phoneNumbers[0].number+'</div></div>';
   		resultContent += '</div>'
   	}
   	$j('#searchresults').html(resultContent);
@@ -108,7 +112,7 @@ function gotResults(sc, searcher)
       var localSearch = new google.search.LocalSearch();
       
       searchControl.addSearcher(localSearch);
-      localSearch.setCenterPoint("NY");
+      localSearch.setCenterPoint(getPreferredLocation());
       searchControl.draw($j("search_control"));
 
       // Declare function for using results

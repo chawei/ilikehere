@@ -20,9 +20,12 @@
         <div id="logo"><%= link_to 'HERE', root_url %></div>    
         <div id="login_bar">
           <%- if current_user -%>
-            <%= link_to 'Logout', logout_url %>
+            <span class="name"><%= link_to current_user.name, profile_url %></span>
+            <span class="lightcolor"> loves </span>
+            <span id="preferred_location"><%= current_user.reload.preferred_location %></span>
+            <span class="status"><%= link_to 'Logout', logout_url %></span>
           <%- else -%>
-            <%= link_to 'Login', login_url %>
+            <span class="status"><%= link_to 'Login', login_url %></span>
           <%- end -%>
         </div>
         <div id="menu" class="clear">

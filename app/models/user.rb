@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   acts_as_network :friends, :through => :invites, :conditions => ["is_accepted = ?", true]
   
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :username, :email, :password, :password_confirmation, 
+                  :preferred_location, :first_name, :last_name
   
   attr_accessor :password
   before_save :prepare_password
@@ -26,6 +27,15 @@ class User < ActiveRecord::Base
   
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
+  end
+  
+  # Instance Methods
+  def name
+    first_name ? first_name : username
+  end
+  
+  def full_name
+    first_name + " " + last_name
   end
   
   private

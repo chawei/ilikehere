@@ -53,6 +53,13 @@ a:hover {
   background: #FFFF00 none repeat scroll 0 0;
 }
 
+input {
+  font-family: Arial;
+  font-size: 12px;
+  color: #333;
+}
+
+
 .clear {
   clear: both;
   height: 0;

@@ -1,0 +1,17 @@
+<div class="pages">
+	<div class="page_navigation">
+	  <span class="page_num"><%= "#{items.pages.current} of #{items.pages.last}" %></span>
+		<% if items.pages.current == items.pages.first -%>
+			<span class="disable_link">prev</span>
+		<% else -%>
+			<%= link_to "prev", { :page => items.pages.previous, :scope => session[:scope], :query => session[:query] } %>
+		<% end -%>
+		<span class="gap_line">|</span>
+		<% if items.pages.current == items.pages.last or items.pages.last == 0 -%>
+			<span class="disable_link">next</span>
+		<% else -%>
+			<%= link_to "next", { :page => items.pages.next, :scope => session[:scope], :query => session[:query] } %>
+		<% end -%>
+	</div>	
+</div>
+<br class="clear"/>

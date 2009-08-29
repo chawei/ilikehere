@@ -20,7 +20,7 @@ staging:
   password: ilike
        
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql
+  database: chawei_ilikehereproduction
+  username: chawei_here
+  password: ilike 

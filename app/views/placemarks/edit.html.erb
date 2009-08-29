@@ -1,6 +1,6 @@
 <% title "Edit Placemark" %>
 
-<%= render :partial => 'form' %>
+<%= render :partial => 'form', :locals => { :submit_text => "update" } %>
 
 <p><%= link_to "Back to List", placemarks_path %></p>
 

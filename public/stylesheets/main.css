@@ -56,6 +56,17 @@ tr {
   right: 0;
   text-align: right;
 }
+  #login_bar .status {
+  }
+  #login_bar .name {
+    padding: 0 5px 0;
+  }
+  #login_bar #preferred_location {
+    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
+    color: #666;
+    border-right: 1px solid #333;
+  }
 
 #menu {
   position: absolute;
@@ -79,9 +90,6 @@ tr {
 }
 
 
-
-
-
 /*** Placemarks ***/
 #search_box {
   width: 300px;
@@ -93,7 +101,26 @@ tr {
 .result {
   margin: 0 0 10px 0;
 }
-
+  .result div.item {
+    position: relative;
+    height: 17px;
+  }
+  .result div.item:hover {
+    background-color: #fff;
+  }
+    .result div.item div.content {
+      position: absolute;
+      left: 0px;
+    }
+    .result div.item span.hidden_btn {
+      position: absolute;
+      left: -180px;
+      color: #0066FF;
+      visibility: hidden;
+    }
+    .result div.item:hover span.hidden_btn {
+      visibility: visible;
+    }
 
 /*** Unclassified ***/
 #bookmark_box {
@@ -102,10 +129,29 @@ tr {
   bottom: 15px;
 }
 
+.edit_form th, .edit_form td {
+  border: none;
+}
+
+.info th, .info td {
+  border: none;
+}
+
 /* User
 -------------------------*/
+#profile_page .username {
+  font-size: 18px;
+  font-weight: bold;
+  color: #111;
+}
+#profile_page .full_name {
+  font-size: 16px;
+  color: #666;
+  margin: 0 10px 0 0;
+}
+
 #basic_info {
-  margin: 10px 0;
+  margin: 10px 0 20px;
 }
 
 #recent_activities {
@@ -137,4 +183,8 @@ tr {
 
 .mid_line {
   line-height: 18px;
+}
+
+.lightcolor {
+  color: #666;
 }

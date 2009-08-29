@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'welcome'
   map.profile 'profile', :controller => 'users', :action => 'profile'
+  map.edit_profile 'profile/edit', :controller => 'users', :action => 'edit'
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'

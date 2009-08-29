@@ -20,4 +20,18 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def edit
+    @user = current_user
+  end
+  
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Successfully updated your profile."
+      redirect_to :action => :profile
+    else
+      render :action => :edit
+    end
+  end
 end
