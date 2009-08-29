@@ -7,4 +7,8 @@ module ApplicationHelper
   def stylesheet(*files)
     content_for(:head) { stylesheet_link_tag(*files) }
   end
+  
+  def pagination_bar(items)
+    render :partial => 'partials/pagination_bar', :locals => { :items => items }
+  end
 end
