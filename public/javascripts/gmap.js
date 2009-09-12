@@ -1,17 +1,20 @@
-var retry_num_of = new Hash();
-
 google.load("search", "1");
+google.setOnLoadCallback(OnLoad);
+
+/* Global Variables */
+var retry_num_of = new Hash();
+var searchControl;  // search control
+var localSearch;    // local search
+var p;
 
 function getPreferredLocation() {
   return $j("#preferred_location").text();
 }
 
 function OnLoad() {
-  // Create a search control
-  var searchControl = new google.search.SearchControl();
-
-  // Add in a full set of searchers
-  var localSearch = new google.search.LocalSearch();
+  searchControl = new google.search.SearchControl();  // Create a search control
+  localSearch = new google.search.LocalSearch();  // Add in a full set of searchers
+  
   searchControl.addSearcher(localSearch);
   //searchControl.addSearcher(new google.search.WebSearch());
   //searchControl.addSearcher(new google.search.VideoSearch());
@@ -41,6 +44,9 @@ function OnLoad() {
     $j('subscription_sub_region').observe('change', subregionSelected);
   });
   */
+  new Form.Observer('search_form', 0.3,	function(){
+    localSearch.setCenterPoint($('search_location').value);
+  });
 }
 
 function gotResults(sc, searcher)
@@ -107,10 +113,7 @@ function gotResults(sc, searcher)
   } else {
     // Try another solution or notice user that is no result
     retry_num_of[targetURL]++;
-    if (retry_num_of[targetURL]==1) {
-      var searchControl = new google.search.SearchControl();
-      var localSearch = new google.search.LocalSearch();
-      
+    if (retry_num_of[targetURL]==1) {      
       searchControl.addSearcher(localSearch);
       localSearch.setCenterPoint(getPreferredLocation());
       searchControl.draw($j("search_control"));
@@ -121,6 +124,4 @@ function gotResults(sc, searcher)
     }
   }
 }
-	
-google.setOnLoadCallback(OnLoad);
 

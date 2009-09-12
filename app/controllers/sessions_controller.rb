@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   include Geokit::Geocoders
   
+  skip_before_filter :login_required
+  
   def new
   end
   
