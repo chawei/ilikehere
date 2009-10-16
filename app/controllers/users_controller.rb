@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  skip_before_filter :login_required, :only => [:new, :create]
+  
   def profile
     unless @current_user = current_user
       flash[:notice] = "Please login first!"

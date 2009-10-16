@@ -27,4 +27,4 @@ config.action_view.cache_template_loading            = true
 # Enable threaded mode
 # config.threadsafe!
 
-HOST = 'http://staging.ilikehere.com'
+HOST = 'http://dev.ilikehere.com'

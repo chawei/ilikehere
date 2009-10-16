@@ -29,8 +29,7 @@ class SessionsController < ApplicationController
       if user.preferred_location
         session[:preferred_location] = user.preferred_location
       else
-        ip_addr = request.env['REMOTE_ADDR']
-        location = IpGeocoder.geocode('ip_addr')
+        location = IpGeocoder.geocode(request.remote_ip)
         session[:preferred_location] = location.city
         user.preferred_location = location.city
         user.save

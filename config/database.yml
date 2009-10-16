@@ -13,6 +13,12 @@ test:
   pool: 5
   timeout: 5000
 
+dev:
+  adapter: mysql
+  database: ilikehere_dev
+  username: ilikehere-dev
+  password: ilikeHERE123%
+    
 staging:
   adapter: mysql
   database: chawei_ilikeherestaging

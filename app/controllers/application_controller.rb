@@ -11,4 +11,10 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   
   before_filter :login_required
+  before_filter :test_ip
+  
+  def test_ip
+    puts request.remote_ip
+  end
+  
 end
