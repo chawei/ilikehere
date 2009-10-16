@@ -7,6 +7,14 @@
 # http://www.modrails.com/
 #############################################################
 
+#############################################################
+# Servers
+#############################################################
+
+set :user, "ilikehere-dev"
+set :domain, "dev.ilikehere.com"
+server domain, :app, :web
+role :db, domain, :primary => true
 
 #############################################################
 # Application
@@ -21,18 +29,9 @@ set :deploy_to, "/home/#{user}/apps/#{application}"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-set :use_sudo, true
+set :use_sudo, false
 set :scm_verbose, true
 set :rails_env, "dev"
-
-#############################################################
-# Servers
-#############################################################
-
-set :user, "ilikehere-dev"
-set :domain, "dev.ilikehere.com"
-server domain, :app, :web
-role :db, domain, :primary => true
 
 #############################################################
 # Git
@@ -49,39 +48,47 @@ set :deploy_via, :remote_cache
 #############################################################
 
 namespace :deploy do
- desc "Symlink config files"
- task :before_symlink do
-   run "rm #{release_path}/public/.htaccess" #not compatible with Passenger
-   run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-   #run "ln -s #{shared_path}/config/site.yml #{release_path}/config/site.yml"
-   run "ln -s #{shared_path}/config/environment.rb #{release_path}/config/environment.rb"
- end
+  desc "Deploy with Migrations"
+  task :default do
+    set :migrate_target, :latest
+    update_code
+    migrate
+    symlink
+  end
+  
+  desc "Symlink config files"
+  task :before_symlink do
+    #run "rm #{release_path}/public/.htaccess" #not compatible with Passenger
+    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    #run "ln -s #{shared_path}/config/site.yml #{release_path}/config/site.yml"
+    run "ln -s #{shared_path}/config/environment.rb #{release_path}/config/environment.rb"
+  end
 
- # Restart passenger on deploy
- desc "Restarting mod_rails with restart.txt"
- task :restart, :roles => :app, :except => { :no_release => true } do
-   run "touch #{current_path}/tmp/restart.txt"
- end
+    # Restart passenger on deploy
+  desc "Restarting mod_rails with restart.txt"
+    task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
 
- [:start, :stop].each do |t|
-   desc "#{t} task is a no-op with mod_rails"
-   task t, :roles => :app do ; end
- end
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
 
 end
 
 namespace :db do
- desc 'Dumps the production database to db/production_data.sql on the remote server'
+ desc "Dumps the #{rails_env} database to db/#{rails_env}_data.sql on the remote server"
  task :remote_db_dump, :roles => :db, :only => { :primary => true } do
    run "cd #{deploy_to}/#{current_dir} && " +
      "rake RAILS_ENV=#{rails_env} db:dump_sql --trace"
  end
 
- desc 'Downloads db/production_data.sql from the remote production environment to your local machine'
+ desc "Downloads db/#{rails_env}_data.sql from the remote #{rails_env} environment to your local machine"
  task :remote_db_download, :roles => :db, :only => { :primary => true } do 
    execute_on_servers(options) do |servers|
      self.sessions[servers.first].sftp.connect do |tsftp|
-       tsftp.download!("#{deploy_to}/#{current_dir}/db/production_data.sql", "db/production_data.sql")
+       tsftp.download!("#{deploy_to}/#{current_dir}/db/#{rails_env}_data.sql", "db/#{rails_env}_data.sql")
      end
    end
  end
@@ -90,12 +97,12 @@ namespace :db do
  task :remote_db_cleanup, :roles => :db, :only => { :primary => true } do
    execute_on_servers(options) do |servers|
      self.sessions[servers.first].sftp.connect do |tsftp|
-       tsftp.remove! "#{deploy_to}/#{current_dir}/db/production_data.sql"
+       tsftp.remove! "#{deploy_to}/#{current_dir}/db/#{rails_env}_data.sql"
      end
    end
  end
 
- desc 'Dumps, downloads and then cleans up the production data dump'
+ desc "Dump, download and then clean up the #{rails_env} data dump"
  task :remote_db_runner do
    remote_db_dump
    remote_db_download
