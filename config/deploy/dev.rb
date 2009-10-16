@@ -33,6 +33,9 @@ set :use_sudo, false
 set :scm_verbose, true
 set :rails_env, "dev"
 
+# Less releases, less space wasted
+set :keep_releases, 5
+
 #############################################################
 # Git
 #############################################################
@@ -60,8 +63,9 @@ namespace :deploy do
   task :before_symlink do
     #run "rm #{release_path}/public/.htaccess" #not compatible with Passenger
     run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    #run "ln -s /home/ilikehere-dev/apps/ilikehere-dev/current/public /srv/www/dev.ilikehere.com/public_html"
     #run "ln -s #{shared_path}/config/site.yml #{release_path}/config/site.yml"
-    run "ln -s #{shared_path}/config/environment.rb #{release_path}/config/environment.rb"
+    #run "ln -s #{shared_path}/config/environment.rb #{release_path}/config/environment.rb"
   end
 
     # Restart passenger on deploy

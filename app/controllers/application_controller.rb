@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   before_filter :test_ip
   
   def test_ip
-    puts request.remote_ip
+    logger.info "[INFO] #{request.remote_ip}"
   end
   
 end

@@ -21,7 +21,7 @@
         <div id="login_bar">
           <%- if current_user -%>
             <span class="name"><%= link_to current_user.name, profile_url %></span>
-            <span class="lightcolor"> loves </span>
+            <span class="lightcolor"> likes </span>
             <span id="preferred_location"><%= current_user.reload.preferred_location %></span>
             <span class="status"><%= link_to 'Logout', logout_url %></span>
           <%- else -%>
