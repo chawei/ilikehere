@@ -1,0 +1,44 @@
+<% title "Add a placemark" %>
+
+<%- content_for :head do -%>
+<!--
+<script src="http://www.google.com/jsapi?key=ABQIAAAAQ7MVoR2eIr03-e6D9r8yMBQcFBMI2uCUrftSjZkhrark-5O3gBRnGCsZg7Gm3d2VIgQLVd187H571Q" type="text/javascript"></script>
+-->
+<%- end -%>
+<%= javascript 'search_result' %>
+
+
+<%= render :partial => 'form', :locals => { :submit_text => "add" } %>
+
+<div id="search_box" class="right">
+  <h3>Suggested Results</h3>
+  <br>
+  <!--
+  <form id="search_form">
+    <input id="search_location" name="search_location" type="text" value="Search Location" />
+  </form>
+  <div id="search_control">Loading...</div>
+  -->
+  <div id="searchresults">    
+    <% for result in @results[0..4] %>
+      <% index = @results.index(result) %>
+      <div class="result">
+        <div class="item">
+          <span class="hidden_btn">replace Original Name</span>
+          <div id="name-<%= index %>" class="content"><%= result["title"] %></div>
+        </div>
+        <div class="item">
+          <span class="hidden_btn">replace Address</span>
+          <div id="address-<%= index %>" class="content"><%= result["address"] %></div>
+        </div>
+        <div class="item">
+          <span class="hidden_btn">replace Phone Number</span>
+          <div id="phone_number-<%= index %>" class="content"><%= result["telephone"] %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="clear"></div>
+<p><%= link_to "Back to List", placemarks_path %></p>
