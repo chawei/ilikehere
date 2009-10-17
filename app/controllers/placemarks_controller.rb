@@ -52,6 +52,23 @@ class PlacemarksController < ApplicationController
   end
   
   def add
+    @place = Place.new
+    @placemark = Placemark.new
+    
+    #uri = URI.parse(params[:url])
+    url = URI.split(params[:url])[2..-1].join
+    @results = GoogleSearch.map_search(:q => url, :near => current_user.preferred_location)
+    unless @results.blank?
+      @placemark.alias = @results.andand.first['title']
+      @place.name = @results.andand.first['title']
+      @place.url = params[:url]
+      @place.address = @results.andand.first['address']
+      @place.phone_number = @results.andand.first['telephone']
+    end
+    
+  end
+  
+  def add_bk
     unless params[:url].blank?
       place = Place.new(:url => params[:url])
       if place.save
