@@ -1,3 +1,9 @@
+function Searcher() {
+  function init() {
+    
+  }
+}
+
 google.load("search", "1");
 google.setOnLoadCallback(OnLoad);
 
@@ -68,7 +74,7 @@ function gotResults(sc, searcher)
       }
       resultContent += '<div class="result">';
       if (result.title != undefined)
-  		  resultContent += '  <div class="item"><span class="hidden_btn">replace Original Name</span><div id="name-'+i+'" class="content">'+result.title+'</div></div>';
+  		  resultContent += '  <div class="item"><span class="hidden_btn">replace Original Name</span><div id="name-'+i+'" class="content">'+result.title.unescapeHTML()+'</div></div>';
   		resultContent += '  <div class="item"><span class="hidden_btn">replace Address</span><div id="address-'+i+'" class="content">'+address+'</div></div>';
   		if (result.phoneNumbers != undefined)
   		  resultContent += '  <div class="item"><span class="hidden_btn">replace Phone Number</span><div id="phone_number-'+i+'" class="content">'+result.phoneNumbers[0].number+'</div></div>';
@@ -100,7 +106,7 @@ function gotResults(sc, searcher)
         firstAddress += firstResult.addressLines[n]+" ";
       }
       if ($j("#place_name").val() == "")
-        $j("#place_name").val(firstResult.title.unescapeHTML());
+        $j("#place_name").val(unescapeHTML(firstResult.title));
       if ($j("#place_url").val() == "")  
         $j("#place_url").val(targetURL);
       if ($j("#place_address").val() == "")
@@ -125,3 +131,10 @@ function gotResults(sc, searcher)
   }
 }
 
+function unescapeHTML(html) {
+   var htmlNode = document.createElement("div");
+   htmlNode.innerHTML = html;
+   if(htmlNode.innerText)
+      return htmlNode.innerText; // IE
+   return htmlNode.textContent; // FF
+}

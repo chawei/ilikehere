@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:login], params[:password])
     if user
+      set_geolocation(user)
       session[:user_id] = user.id
       flash[:notice] = "Logged in successfully."
       redirect_to root_url
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
   
   private
     def set_geolocation(user)
-      if user.preferred_location
+      unless user.preferred_location.blank?
         session[:preferred_location] = user.preferred_location
       else
         location = IpGeocoder.geocode(request.remote_ip)
