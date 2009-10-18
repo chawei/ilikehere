@@ -1,0 +1,33 @@
+<div id="placemarks">
+  <table>
+    <colgroup>
+      <col style="width: 200px" />
+      <col style="width: 300px" />
+      <col style="width: 70px" />
+      <col style="width: 100px" />
+    </colgroup>
+    <tr>
+      <th>nickname</th>
+      <th>address</th>
+      <th>rating</th>
+      <th></th>
+    </tr>
+    <% for placemark in placemarks %>
+      <tr>
+        <td><%=h placemark.alias %></td>
+        <td><%=h placemark.place.address %></td>
+        <td>
+        <%- if placemark.rating -%>
+          <%=h placemark.rating %>
+        <%- else -%>
+          not rated
+        <%- end -%>  
+        </td>
+        <td class="actions"><%= link_to "edit", edit_placemark_path(placemark) %> | 
+        <%= link_to "delete", placemark_path(placemark), :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate placemarks %>
+</div>
