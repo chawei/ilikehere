@@ -1,17 +1,6 @@
 class PlacemarksController < ApplicationController
   def index
-    @placemarks = Placemark.paginate :page => params[:page]
-
-    respond_to do |format|
-      format.html
-      format.js {
-        render :update do |page|
-          # 'page.replace' will replace full "results" block...works for this example
-          # 'page.replace_html' will replace "results" inner html...useful elsewhere
-          page.replace 'placemarks', :partial => 'placemarks'
-        end
-      }
-    end
+    @placemarks = Placemark.paginate :page => params[:page], :per_page => 5
   end
   
   def new

@@ -1,7 +1,4 @@
-class Placemark < ActiveRecord::Base
-  cattr_reader :per_page
-  @@per_page = 5
-  
+class Placemark < ActiveRecord::Base  
   belongs_to :user
   belongs_to :place
   

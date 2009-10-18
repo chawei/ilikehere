@@ -1,6 +1,7 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+/*
 document.observe("dom:loaded", function() {
   // the element in which we will observe all clicks and capture
   // ones originating from pagination links
@@ -24,4 +25,4 @@ document.observe("dom:loaded", function() {
     })
   }
 })
-
+*/
