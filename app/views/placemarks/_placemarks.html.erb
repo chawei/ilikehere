@@ -12,7 +12,7 @@
       <th>rating</th>
       <th></th>
     </tr>
-    <% for placemark in placemarks %>
+    <% for placemark in @placemarks %>
       <tr>
         <td><%=h placemark.alias %></td>
         <td><%=h placemark.place.address %></td>
@@ -29,5 +29,5 @@
     <% end %>
   </table>
 
-  <%= will_paginate placemarks %>
+  <%= will_paginate @placemarks %>
 </div>

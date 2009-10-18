@@ -1,5 +1,5 @@
 <% title "Placemarks" %>
 
-<%= render :partial => 'placemarks', :locals => { :placemarks => @placemarks } %>
+<%= render :partial => 'placemarks', :object => @placemarks %>
 
 <p><%= link_to "New Placemark", new_placemark_path %></p>

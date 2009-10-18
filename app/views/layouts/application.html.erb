@@ -7,8 +7,12 @@
     <%= stylesheet_link_tag 'main' %>
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <%= javascript_include_tag 'application' %>
+    <script type="text/javascript" charset="utf-8">
+      var $j = jQuery.noConflict();
+    </script>
+    
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js"></script>
+    <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'jquery_plugin' %>
     <%= javascript_include_tag 'utility' %>
     <%= javascript_include_tag 'parse_uris' %>
