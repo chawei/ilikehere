@@ -1,6 +1,6 @@
 class PlacemarksController < ApplicationController
   def index
-    @placemarks = Placemark.paginate :page => params[:page], :per_page => 1
+    @placemarks = Placemark.paginate :page => params[:page], :per_page => 10
   end
   
   def new
