@@ -1,10 +1,5 @@
 <% title "Add a placemark" %>
 
-<% content_for :head do -%>
-  <%= javascript 'rating' %>
-  <%= stylesheet 'rating' %>
-<% end -%>
-
 <%= render :partial => 'form', :locals => { :submit_text => "add" } %>
 
 <div class="clear"></div>

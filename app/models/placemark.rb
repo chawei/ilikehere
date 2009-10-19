@@ -16,6 +16,6 @@ class Placemark < ActiveRecord::Base
   
   def user_rating(dimension = :overall)
     rating = place.rates(dimension).find_by_user_id(user.id)
-    rating.blank? ? "not rated yet" : "#{rating.stars}/10"
+    rating.blank? ? "none" : "#{rating.stars}/10"
   end
 end
