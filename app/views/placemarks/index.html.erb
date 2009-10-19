@@ -1,8 +1,14 @@
-<% title "Placemarks" %>
+<% title "Placemarks", false %>
+
+<div class="headtitle">
+  <h1>Placemarks</h1>
+  <span class="actions"><%= link_to "+new", new_placemark_path %></span>
+</div>
+
 <% javascript "jquery.ba-url", "pagination" %>
 
 <div id="placemarks">
   <%= render 'placemarks' %>
 </div>
 
-<p><%= link_to "New Placemark", new_placemark_path %></p>
+

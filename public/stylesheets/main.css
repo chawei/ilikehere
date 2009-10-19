@@ -91,6 +91,10 @@ tr {
 
 
 /*** Placemarks ***/
+#placemarks {
+  clear: both;
+}
+
 #search_box {
   width: 300px;
   padding: 0 15px;
@@ -140,6 +144,13 @@ tr {
   border: none;
 }
 
+.headtitle h1 {
+  display: inline;
+}
+.headtitle .actions {
+  margin: 0 0 0 10px;
+}
+
 /* User
 -------------------------*/
 #profile_page .username {
@@ -160,6 +171,13 @@ tr {
 #recent_activities {
   padding: 10px 0;
   border-top: 1px solid #ccc;
+}
+
+/* Pagination
+-------------------------*/
+.pagination {
+  text-align: right;
+  height: 15px;
 }
 
 /*** General ***/
