@@ -144,12 +144,14 @@ tr {
   border: none;
 }
 
-.headtitle h1 {
-  display: inline;
+.headtitle {
 }
-.headtitle .actions {
-  margin: 0 0 0 10px;
-}
+  .headtitle h1 {
+    display: inline;
+  }
+  .headtitle .actions {
+    margin: 0 0 0 10px;
+  }
 
 /* User
 -------------------------*/
@@ -179,7 +181,20 @@ tr {
   text-align: right;
   height: 15px;
 }
-
+  .pagination a {
+    border: 1px solid #ddd;
+    padding: 1px 3px;
+  }
+  .prev_page {
+    margin: 0 10px 0 0;
+  }
+  .next_page {
+    margin: 0 0 0 10px;
+  }
+  .disabled {
+    color: #aaa;
+    padding: 1px 3px;
+  }
 /*** General ***/
 
 .box {

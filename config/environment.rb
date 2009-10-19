@@ -46,3 +46,6 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   
 end
+
+WillPaginate::ViewHelpers.pagination_options[:prev_label] = '&lt; prev'
+WillPaginate::ViewHelpers.pagination_options[:next_label] = 'next &gt;'
