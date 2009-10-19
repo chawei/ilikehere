@@ -2,31 +2,80 @@
 <% form_for @placemark do |f| %>
   <%= error_messages_for :object => [@place, @placemark] %>
   <p>
-    <%= f.label :alias, "Nickname (optional)" %><br />
-    <%= f.text_field :alias %>
+    <div class="field_title"><%= f.label :alias, "Nickname" %></div>
+    <div class="field_input"><%= f.text_field :alias, :class => "text_field" %></div>
   </p>
   <%- fields_for :place do |place| -%>
   <p>
-    <%= place.label :name, "Original Name" %><br />
-    <%= place.text_field :name %>
+    <div class="field_title">
+      <%= place.label :name, "Original Name" %><span class="required"> *</span>
+    </div>
+    <div class="field_input">
+      <%= place.text_field :name, :class => "text_field" %>
+    </div>
   </p>
   <p>
-    <%= place.label :url, "URL" %><br />
-    <%= place.text_field :url %>
+    <div class="field_title">
+      <%= place.label :url, "URL" %><span class="required"> *</span>
+    </div>
+    <div class="field_input">
+      <%= place.text_field :url, :class => "text_field" %>
+    </div>  
   </p>
   <p>
-    <%= place.label :address, "Address" %><br />
-    <%= place.text_field :address %>
+    <div class="field_title">
+      <%= place.label :address, "Address" %><span class="required"> *</span>
+    </div>
+    <div class="field_input">
+      <%= place.text_field :address, :class => "text_field" %>
+    </div>  
   </p>
   <p>
-    <%= place.label :phone_number, "Phone Number (optional)" %><br />
-    <%= place.text_field :phone_number %>
+    <div class="field_title">
+      <%= place.label :phone_number, "Phone Number" %>
+    </div>
+    <div class="field_input">
+      <%= place.text_field :phone_number %>
+    </div>
   </p>
+  
+
+  <div>
+    <div class="field_title">
+      <label for="price_rating">Rating</label>
+    </div>
+    <div class="field_input">
+        <%- if @place.new_record? -%>
+          <div id="ajaxful-rating-overall-place-" class="ajaxful-rating-wrapper">
+            <ul class="ajaxful-rating small-star">
+              <li style="width: 0%;" class="current-rating">Current rating: 0.0/10</li>
+              <li><a title="1 star out of 10" href="#" class="stars-1">1</a></li>
+              <li><a title="2 star out of 10" href="#" class="stars-2">2</a></li>
+              <li><a title="3 star out of 10" href="#" class="stars-3">3</a></li>
+              <li><a title="4 star out of 10" href="#" class="stars-4">4</a></li>
+              <li><a title="5 star out of 10" href="#" class="stars-5">5</a></li>
+              <li><a title="6 star out of 10" href="#" class="stars-6">6</a></li>
+              <li><a title="7 star out of 10" href="#" class="stars-7">7</a></li>
+              <li><a title="8 star out of 10" href="#" class="stars-8">8</a></li>
+              <li><a title="9 star out of 10" href="#" class="stars-9">9</a></li>
+              <li><a title="10 star out of 10" href="#" class="stars-10">10</a></li>
+            </ul>
+          </div>
+          <%= hidden_field_tag :stars %>
+          <%= hidden_field_tag :dimension %>
+        <%- else -%>
+          <%= ratings_for @place, :dimension => :overall, :small_stars => true %>
+        <%- end -%>
+    </div>
+  </div>
+
+  
   <%- end -%>
+
   <p>
-    <%= f.label :rating , "Rating (optional)" %><br />
-    <%= f.text_field :rating %>
+    <div class="field_input">
+      <%= f.submit submit_text, :class => "submit_field" %>
+    </div>
   </p>
-  <p><%= f.submit submit_text %></p>
 <% end %>
 </div>

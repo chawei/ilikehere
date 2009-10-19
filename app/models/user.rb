@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   has_many :placemarks
   has_many :places, :through => :placemarks
   
+  ajaxful_rater
+  
   # login can be either username or email address
   def self.authenticate(login, pass)
     user = find_by_username(login) || find_by_email(login)

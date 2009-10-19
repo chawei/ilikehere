@@ -8,6 +8,8 @@ class Place < ActiveRecord::Base
   
   #before_save { name.gsub!(/<\/?[^>]*>/, "") }
   
+  ajaxful_rateable :stars => 10, :dimensions => [:price, :taste, :decorating, :overall]
+  
   def average_rating
     placemarks_ratings = []
     placemarks.each { |p| placemarks_ratings << p.rating.to_f }

@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :placemarks, :collection => [:add]
+  map.resources :placemarks, :collection => [ :add ]
 
-  map.resources :places
+  map.resources :places, :member => { :rate => :post }, :collection => [ :nonajax_rate ]
 
   map.root :controller => 'welcome'
   map.profile 'profile', :controller => 'users', :action => 'profile'

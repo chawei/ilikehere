@@ -17,13 +17,7 @@
     <tr>
       <td><%=h placemark.alias %></td>
       <td><%=h placemark.place.address %></td>
-      <td>
-      <%- if placemark.rating -%>
-        <%=h placemark.rating %>
-      <%- else -%>
-        not rated
-      <%- end -%>  
-      </td>
+      <td><%=h placemark.user_rating %></td>
       <td class="actions"><%= link_to "edit", edit_placemark_path(placemark) %> | 
       <%= link_to "delete", placemark_path(placemark), :method => :delete %></td>
     </tr>

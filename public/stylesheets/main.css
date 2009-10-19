@@ -195,8 +195,56 @@ tr {
     color: #aaa;
     padding: 1px 3px;
   }
-/*** General ***/
+  
+/* Form
+-------------------------*/
+.form .field_title {
+  margin: 0 0 3px 0;
+}
+  .field_title label {
+    color: #666;
+  }
+  .field_title .required {
+    color: #333;
+  }
+  
+.form .field_input {
+  margin: 0 0 3px 0;
+}
+  .form .field_input input {
+    color: #333;
+    font-size: 13px;
+    width: 150px;
+    padding: 2px 0 0 3px;
+  }
+  .form .field_input input.text_field {
+    width: 200px;
+  }
+  .form .field_input input.submit_field {
+    width: inherit;
+    height: inherit;
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-bottom-left-radius: 4px 4px;
+    -webkit-border-bottom-right-radius: 4px 4px;
+    -webkit-border-top-left-radius: 4px 4px;
+    -webkit-border-top-right-radius: 4px 4px;
+    background: #0063DC none repeat scroll 0 0;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 6px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
+
+/* General
+-------------------------*/
 .box {
    margin: 0 20px 0 0;
 }

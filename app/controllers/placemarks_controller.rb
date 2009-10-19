@@ -12,6 +12,7 @@ class PlacemarksController < ApplicationController
     params[:placemark][:user_id] = current_user.id
     
     @place = Place.new(params[:place])
+    @place.rate(params[:stars], current_user, params[:dimension])
     @placemark = Placemark.new(params[:placemark])
     
     if @place.save
@@ -64,8 +65,7 @@ class PlacemarksController < ApplicationController
       @place.url = params[:url]
       @place.address = @results.andand.first['address']
       @place.phone_number = @results.andand.first['telephone']
-    end
-    
+    end   
   end
   
   def add_bk
