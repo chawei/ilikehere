@@ -1,0 +1,797 @@
+# Logfile created on Fri Jan 29 14:51:16 -0800 2010WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (40.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (306.1ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (201.4ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090609194359)
+  [4;35;1mSQL (181.6ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `password_hash` varchar(255), `password_salt` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090609194359')[0m
+Migrating to CreateInvites (20090624182102)
+  [4;35;1mSQL (116.6ms)[0m   [0mCREATE TABLE `invites` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL, `user_id_target` int(11) NOT NULL, `code` varchar(255), `message` text, `is_accepted` tinyint(1), `accepted_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090624182102')[0m
+Migrating to CreatePlaces (20090708205223)
+  [4;35;1mSQL (118.3ms)[0m   [0mCREATE TABLE `places` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `url` varchar(255), `address` varchar(255), `phone_number` varchar(255), `lat` decimal(15,10), `lng` decimal(15,10), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090708205223')[0m
+Migrating to CreatePlacemarks (20090708205841)
+  [4;35;1mSQL (106.8ms)[0m   [0mCREATE TABLE `placemarks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL, `place_id` int(11) NOT NULL, `rating` int(11), `alias` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090708205841')[0m
+Migrating to AddFieldsToUsers (20090824193821)
+  [4;35;1mSQL (110.6ms)[0m   [0mALTER TABLE `users` ADD `first_name` varchar(255)[0m
+  [4;36;1mSQL (109.4ms)[0m   [0;1mALTER TABLE `users` ADD `last_name` varchar(255)[0m
+  [4;35;1mSQL (138.6ms)[0m   [0mALTER TABLE `users` ADD `preferred_location` varchar(255)[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090824193821')[0m
+Migrating to CreateRates (20091019070520)
+  [4;35;1mSQL (142.7ms)[0m   [0mCREATE TABLE `rates` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `rateable_id` int(11), `rateable_type` varchar(255), `stars` int(11), `dimension` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (103.6ms)[0m   [0;1mCREATE INDEX `index_rates_on_user_id` ON `rates` (`user_id`)[0m
+  [4;35;1mSQL (100.1ms)[0m   [0mCREATE INDEX `index_rates_on_rateable_id` ON `rates` (`rateable_id`)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091019070520')[0m
+Migrating to AddRatingAverageToPlaces (20091019171749)
+  [4;35;1mSQL (106.3ms)[0m   [0mALTER TABLE `placemarks` DROP `rating`[0m
+  [4;36;1mSQL (127.3ms)[0m   [0;1mALTER TABLE `places` ADD `rating_average` decimal[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091019171749')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `invites`[0m
+  [4;36;1mSQL (12.9ms)[0m   [0;1mdescribe `invites`[0m
+  [4;35;1mSQL (49.1ms)[0m   [0mSHOW KEYS FROM `invites`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `placemarks`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `placemarks`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `placemarks`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `places`[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mdescribe `places`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW KEYS FROM `places`[0m
+  [4;36;1mSQL (59.4ms)[0m   [0;1mSHOW FIELDS FROM `rates`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mdescribe `rates`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW KEYS FROM `rates`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-29 14:52:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Redirected to http://localhost:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 36ms (DB: 0) | 302 Found [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-01-29 14:52:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 114ms (View: 113, DB: 0) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-01-29 14:52:45) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+[INFO] 127.0.0.1
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 33ms (View: 21, DB: 2) | 200 OK [http://localhost/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-01-29 14:53:01) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"G5bBLJe23MR93SwDD6SSs3Ixy7h/gRguUGMODXLkpOw=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"chawei", "last_name"=>"Hsu", "password"=>"[FILTERED]", "first_name"=>"David", "preferred_location"=>"", "email"=>"chawei.hsu@gmail.com"}}
+[INFO] 127.0.0.1
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'chawei') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chawei.hsu@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`created_at`, `updated_at`, `username`, `password_salt`, `last_name`, `password_hash`, `email`, `first_name`, `preferred_location`) VALUES('2010-01-29 22:53:01', '2010-01-29 22:53:01', 'chawei', '5d1bcd3696e95fd74a7ac1d9cdb0c538ac5fa5c4', 'Hsu', '680460341288af2eec4e9f9ca49e822a71957380', 'chawei.hsu@gmail.com', 'David', '')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 190ms (DB: 48) | 302 Found [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-29 14:53:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mPlacemark Load (0.3ms)[0m   [0mSELECT * FROM `placemarks` WHERE (`placemarks`.user_id = 1) [0m
+Rendered partials/_bookmark (1.3ms)
+Completed in 97ms (View: 84, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-01-29 14:53:56) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+[INFO] 127.0.0.1
+Redirected to http://localhost:3000/
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/logout]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-29 14:53:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Redirected to http://localhost:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-01-29 14:53:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-01-29 14:54:06) [POST]
+  Parameters: {"commit"=>"Log in", "action"=>"create", "authenticity_token"=>"G5bBLJe23MR93SwDD6SSs3Ixy7h/gRguUGMODXLkpOw=", "controller"=>"sessions", "login"=>"chawei", "password"=>"[FILTERED]"}
+[INFO] 127.0.0.1
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`username` = 'chawei') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'chawei' AND `users`.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chawei.hsu@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-01-29 22:54:07', `preferred_location` = '(Private Address)' WHERE `id` = 1[0m
+  [4;36;1mSQL (63.1ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 679ms (DB: 67) | 302 Found [http://localhost/sessions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-29 14:54:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mPlacemark Load (0.4ms)[0m   [0mSELECT * FROM `placemarks` WHERE (`placemarks`.user_id = 1) [0m
+Rendered partials/_bookmark (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 27ms (View: 13, DB: 4) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-01-29 14:54:21) [GET]
+  Parameters: {"action"=>"profile", "controller"=>"users"}
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (44.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/profile
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 122ms (View: 66, DB: 46) | 200 OK [http://localhost/profile]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-01-29 14:54:23) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Columns (7.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (10.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/edit
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 59ms (View: 33, DB: 17) | 200 OK [http://localhost/profile/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-01-29 14:54:29) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"G5bBLJe23MR93SwDD6SSs3Ixy7h/gRguUGMODXLkpOw=", "id"=>"1", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "last_name"=>"Hsu", "password"=>"[FILTERED]", "first_name"=>"David", "preferred_location"=>"Pasadena"}}
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (51.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'chawei' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chawei.hsu@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.2ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-01-29 22:54:29', `preferred_location` = 'Pasadena' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/profile
+Completed in 71ms (DB: 55) | 302 Found [http://localhost/users/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-01-29 14:54:29) [GET]
+  Parameters: {"action"=>"profile", "controller"=>"users"}
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/profile
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 22ms (View: 9, DB: 3) | 200 OK [http://localhost/profile]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-01-29 14:54:34) [GET]
+  Parameters: {"title"=>"chawei's Profile", "action"=>"add", "url"=>"http://localhost:3000/profile", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlace Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `places`[0m
+  [4;36;1mPlacemark Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (10.9ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1581ms (View: 28, DB: 6) | 200 OK [http://localhost/placemarks/add?url=http://localhost:3000/profile&title=chawei's%20Profile]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-01-29 14:54:44) [GET]
+  Parameters: {"title"=>"Oba", "action"=>"add", "url"=>"http://www.obasushi.com/Oba.html", "controller"=>"placemarks"}
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (44.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mPlace Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `places`[0m
+  [4;35;1mPlacemark Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (9.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1442ms (View: 15, DB: 50) | 200 OK [http://localhost/placemarks/add?url=http://www.obasushi.com/Oba.html&title=Oba]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-01-29 14:56:24) [GET]
+  Parameters: {"action"=>"profile", "controller"=>"users"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (55.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/profile
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 75ms (View: 7, DB: 58) | 200 OK [http://localhost/profile]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-01-29 14:56:26) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/edit
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 24ms (View: 11, DB: 3) | 200 OK [http://localhost/profile/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-01-29 14:56:30) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"G5bBLJe23MR93SwDD6SSs3Ixy7h/gRguUGMODXLkpOw=", "id"=>"1", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "last_name"=>"Hsu", "password"=>"[FILTERED]", "first_name"=>"David", "preferred_location"=>"NY"}}
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (53.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'chawei' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chawei.hsu@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-01-29 22:56:30', `preferred_location` = 'NY' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/profile
+Completed in 74ms (DB: 58) | 302 Found [http://localhost/users/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-01-29 14:56:30) [GET]
+  Parameters: {"action"=>"profile", "controller"=>"users"}
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/profile
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 23ms (View: 8, DB: 3) | 200 OK [http://localhost/profile]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-01-29 14:57:11) [GET]
+  Parameters: {"title"=>"The Grey Dog's Coffee", "action"=>"add", "url"=>"http://thegreydog.com/", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlace Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `places`[0m
+  [4;36;1mPlacemark Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (6.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1301ms (View: 12, DB: 6) | 200 OK [http://localhost/placemarks/add?url=http://thegreydog.com/&title=The%20Grey%20Dog's%20Coffee]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-01-29 14:57:36) [GET]
+  Parameters: {"action"=>"profile", "controller"=>"users"}
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (48.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/profile
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 67ms (View: 6, DB: 50) | 200 OK [http://localhost/profile]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-01-29 14:57:38) [GET]
+  Parameters: {"action"=>"edit", "controller"=>"users"}
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (42.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 65ms (View: 11, DB: 45) | 200 OK [http://localhost/profile/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-01-29 14:57:41) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"G5bBLJe23MR93SwDD6SSs3Ixy7h/gRguUGMODXLkpOw=", "id"=>"1", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "last_name"=>"Hsu", "password"=>"[FILTERED]", "first_name"=>"David", "preferred_location"=>"CA"}}
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (46.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`username` = BINARY 'chawei' AND `users`.id <> 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chawei.hsu@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.2ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-01-29 22:57:42', `preferred_location` = 'CA' WHERE `id` = 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/profile
+Completed in 138ms (DB: 51) | 302 Found [http://localhost/users/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-01-29 14:57:42) [GET]
+  Parameters: {"action"=>"profile", "controller"=>"users"}
+  [4;35;1mUser Columns (126.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/profile
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 144ms (View: 7, DB: 127) | 200 OK [http://localhost/profile]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-01-29 14:57:59) [GET]
+  Parameters: {"title"=>"Oba", "action"=>"add", "url"=>"http://www.obasushi.com/Oba.html", "controller"=>"placemarks"}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (51.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mPlace Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `places`[0m
+  [4;35;1mPlacemark Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (8.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1519ms (View: 14, DB: 57) | 200 OK [http://localhost/placemarks/add?url=http://www.obasushi.com/Oba.html&title=Oba]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-01-29 14:59:02) [GET]
+  Parameters: {"title"=>"Oba", "action"=>"add", "url"=>"http://www.obasushi.com/Oba.html", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (16.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlace Columns (19.4ms)[0m   [0mSHOW FIELDS FROM `places`[0m
+  [4;36;1mPlacemark Columns (13.1ms)[0m   [0;1mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (7.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1269ms (View: 14, DB: 50) | 200 OK [http://localhost/placemarks/add?url=http://www.obasushi.com/Oba.html&title=Oba]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-01-29 14:59:21) [GET]
+  Parameters: {"action"=>"profile", "controller"=>"users"}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (44.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/profile
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 162ms (View: 44, DB: 46) | 200 OK [http://localhost/profile]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-01-29 14:59:27) [GET]
+  Parameters: {"title"=>"Oba", "action"=>"add", "url"=>"http://www.obasushi.com/Oba.html", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (105.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlace Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `places`[0m
+  [4;36;1mPlacemark Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (8.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1160ms (View: 15, DB: 111) | 200 OK [http://localhost/placemarks/add?url=http://www.obasushi.com/Oba.html&title=Oba]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-01-29 15:00:05) [GET]
+  Parameters: {"title"=>"Oba", "action"=>"add", "url"=>"http://www.obasushi.com/Oba.html", "controller"=>"placemarks"}
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mPlace Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `places`[0m
+  [4;35;1mPlacemark Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (8.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1121ms (View: 14, DB: 6) | 200 OK [http://localhost/placemarks/add?url=http://www.obasushi.com/Oba.html&title=Oba]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-01-29 15:00:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (53.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mPlacemark Load (0.3ms)[0m   [0mSELECT * FROM `placemarks` WHERE (`placemarks`.user_id = 1) [0m
+Rendered partials/_bookmark (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 77ms (View: 11, DB: 56) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-01-29 15:00:22) [GET]
+  Parameters: {"title"=>"Oba", "action"=>"add", "url"=>"http://www.obasushi.com/Oba.html", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlace Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `places`[0m
+  [4;36;1mPlacemark Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (8.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1146ms (View: 14, DB: 6) | 200 OK [http://localhost/placemarks/add?url=http://www.obasushi.com/Oba.html&title=Oba]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-02-03 07:07:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;36;1mPlacemark Load (0.3ms)[0m   [0;1mSELECT * FROM `placemarks` WHERE (`placemarks`.user_id = 1) [0m
+Rendered partials/_bookmark (1.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 152ms (View: 93, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#add (for 127.0.0.1 at 2010-02-03 07:12:32) [GET]
+  Parameters: {"title"=>"Oba", "action"=>"add", "url"=>"http://www.obasushi.com/Oba.html", "controller"=>"placemarks"}
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mPlace Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `places`[0m
+  [4;35;1mPlacemark Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/add
+Rendered placemarks/_form (11.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 1339ms (View: 28, DB: 6) | 200 OK [http://localhost/placemarks/add?url=http://www.obasushi.com/Oba.html&title=Oba]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-02-03 08:37:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;36;1mUser Columns (10.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;36;1mPlacemark Load (0.3ms)[0m   [0;1mSELECT * FROM `placemarks` WHERE (`placemarks`.user_id = 1) [0m
+Rendered partials/_bookmark (1.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 91ms (View: 45, DB: 11) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#index (for 127.0.0.1 at 2010-02-03 08:37:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"placemarks"}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (50.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mPlacemark Load (0.3ms)[0m   [0;1mSELECT * FROM `placemarks` LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering placemarks/index
+Rendered placemarks/_placemarks (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 119ms (View: 52, DB: 52) | 200 OK [http://localhost/placemarks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#profile (for 127.0.0.1 at 2010-02-03 08:37:38) [GET]
+  Parameters: {"action"=>"profile", "controller"=>"users"}
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering users/profile
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 26ms (View: 14, DB: 3) | 200 OK [http://localhost/profile]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#index (for 127.0.0.1 at 2010-02-03 08:37:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlacemark Load (0.3ms)[0m   [0mSELECT * FROM `placemarks` LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering placemarks/index
+Rendered placemarks/_placemarks (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 26ms (View: 8, DB: 4) | 200 OK [http://localhost/placemarks]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-02-03 08:37:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (51.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mPlacemark Load (0.3ms)[0m   [0mSELECT * FROM `placemarks` WHERE (`placemarks`.user_id = 1) [0m
+Rendered partials/_bookmark (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 136ms (View: 73, DB: 53) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-02-03 08:37:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+Rendering template within layouts/application
+Rendering welcome/index
+  [4;35;1mPlacemark Load (0.4ms)[0m   [0mSELECT * FROM `placemarks` WHERE (`placemarks`.user_id = 1) [0m
+Rendered partials/_bookmark (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 24ms (View: 11, DB: 3) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#index (for 127.0.0.1 at 2010-02-03 08:38:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlacemark Load (0.3ms)[0m   [0mSELECT * FROM `placemarks` LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering placemarks/index
+Rendered placemarks/_placemarks (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 23ms (View: 7, DB: 3) | 200 OK [http://localhost/placemarks]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#new (for 127.0.0.1 at 2010-02-03 08:38:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (45.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlace Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `places`[0m
+  [4;36;1mPlacemark Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/new
+Rendered placemarks/_form (10.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 211ms (View: 27, DB: 51) | 200 OK [http://localhost/placemarks/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#create (for 127.0.0.1 at 2010-02-03 08:39:18) [POST]
+  Parameters: {"placemark"=>{"alias"=>""}, "commit"=>"add", "action"=>"create", "authenticity_token"=>"G5bBLJe23MR93SwDD6SSs3Ixy7h/gRguUGMODXLkpOw=", "stars"=>"", "controller"=>"placemarks", "dimension"=>"", "place"=>{"address"=>"", "name"=>"鼎泰豐", "url"=>"www.dintaifung.com.tw", "phone_number"=>""}}
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (71.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mPlace Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `places`[0m
+  [4;35;1mRate Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `rates`[0m
+  [4;36;1mRate Load (0.3ms)[0m   [0;1mSELECT * FROM `rates` WHERE (`rates`.`user_id` = 1) AND (`rates`.rateable_id = NULL AND `rates`.rateable_type = 'Place' AND (`rates`.`dimension` IS NULL)) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRate Create (17.8ms)[0m   [0;1mINSERT INTO `rates` (`rateable_type`, `created_at`, `rateable_id`, `updated_at`, `stars`, `user_id`, `dimension`) VALUES('Place', '2010-02-03 00:39:18', NULL, '2010-02-03 00:39:18', NULL, 1, NULL)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (107.1ms)[0m   [0;1mSELECT sum(`rates`.stars) AS sum_stars FROM `rates` WHERE (`rates`.rateable_id = NULL AND `rates`.rateable_type = 'Place' AND (`rates`.`dimension` IS NULL)) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+Google geocoding. Address: . Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>0.000000,0.000000</name>
+  <Status>
+    <code>400</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: 
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+
+ActiveRecord::RecordInvalid (Validation failed: Address could not be processed.):
+  vendor/gems/edgarjs-ajaxful_rating-2.1.3/lib/ajaxful_rating_model.rb:152:in `update_cached_average'
+  vendor/gems/edgarjs-ajaxful_rating-2.1.3/lib/ajaxful_rating_model.rb:85:in `rate'
+  app/controllers/placemarks_controller.rb:15:in `create'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (unprocessable_entity)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#new (for 127.0.0.1 at 2010-02-03 08:39:56) [GET]
+  Parameters: {"action"=>"new", "controller"=>"placemarks"}
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;35;1mPlace Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `places`[0m
+  [4;36;1mPlacemark Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/new
+Rendered placemarks/_form (8.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 46ms (View: 15, DB: 6) | 200 OK [http://localhost/placemarks/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#index (for 127.0.0.1 at 2010-02-03 08:39:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"placemarks"}
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (43.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mPlacemark Load (0.3ms)[0m   [0;1mSELECT * FROM `placemarks` LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering placemarks/index
+Rendered placemarks/_placemarks (0.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 68ms (View: 8, DB: 46) | 200 OK [http://localhost/placemarks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlacemarksController#new (for 127.0.0.1 at 2010-02-03 08:40:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"placemarks"}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (44.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+[INFO] 127.0.0.1
+  [4;36;1mPlace Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `places`[0m
+  [4;35;1mPlacemark Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `placemarks`[0m
+Rendering template within layouts/application
+Rendering placemarks/new
+Rendered placemarks/_form (8.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 92ms (View: 15, DB: 50) | 200 OK [http://localhost/placemarks/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-04 00:56:10) [GET]
+
+ActionController::RoutingError (No route matches "/admin/why_pages/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-04 00:56:10) [GET]
+
+ActionController::RoutingError (No route matches "/pages/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-04 00:56:11) [GET]
+
+ActionController::RoutingError (No route matches "/admin/supporting_documents/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-04 01:01:48) [GET]
+
+ActionController::RoutingError (No route matches "/admin/supporting_documents/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-04 01:01:52) [GET]
+
+ActionController::RoutingError (No route matches "/admin/supporting_documents/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-04 01:01:58) [GET]
+
+ActionController::RoutingError (No route matches "/admin/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

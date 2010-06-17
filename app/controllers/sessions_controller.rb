@@ -27,13 +27,13 @@ class SessionsController < ApplicationController
   
   private
     def set_geolocation(user)
-      unless user.preferred_location.blank?
-        session[:preferred_location] = user.preferred_location
-      else
+      if user.preferred_location.blank?
         location = IpGeocoder.geocode(request.remote_ip)
         session[:preferred_location] = location.city
         user.preferred_location = location.city
         user.save
+      else
+        session[:preferred_location] = user.preferred_location
       end
     end
     

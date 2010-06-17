@@ -11,14 +11,18 @@ module GoogleSearch
   HOST = 'maps.google.com'
   USERAGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.1) Gecko/20060111 Firefox/1.5.0.1'
   
-  def GoogleSearch.map_search(options={})
+  def map_search(options = {})
     options[:hl] ||= "en"
     options[:g] ||= "US"
-    options[:near] ||= "US"
+    options[:near] = CGI::escape(options[:near] ||= "US")
     options[:z] ||= 12
     options[:v] ||= '1.0'
-    options[:q] = CGI::escape(options[:q])
-    
+    q = options[:q] || ""
+    if match = q.match(/https?:\/\/([\w.]+)\//)
+      q = match[1]
+    end
+    options[:q] = CGI::escape(q)
+
     results = []
     
     http = Net::HTTP.new(HOST)
