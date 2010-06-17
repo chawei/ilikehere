@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(:version => 20091019171749) do
     t.string   "url"
     t.string   "address"
     t.string   "phone_number"
-    t.decimal  "lat",                          :precision => 15, :scale => 10
-    t.decimal  "lng",                          :precision => 15, :scale => 10
+    t.decimal  "lat",            :precision => 15, :scale => 10
+    t.decimal  "lng",            :precision => 15, :scale => 10
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "rating_average", :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "rating_average"
   end
 
   create_table "rates", :force => true do |t|

@@ -1,6 +1,11 @@
 <% title "I Like Here", false %>
 
-<%- if current_user -%>
+<%- if @placemarks.blank? -%>
+
+<h1>Start your journey!</h1>
+<p class="half_width mid_line">It's very simple, just <%= link_to "Sign up here", signup_url %> and start adding your favorite places by surfing around the web. Then you can share with your friends too!</p>
+
+<%- else -%>
 
 <h1>Your Favorite Places</h1>
 <table>
@@ -14,21 +19,16 @@
       <th>address</th>
     </tr>
   </thead>
-<%- for placemark in current_user.placemarks -%>
   <tbody>
+    <%- for placemark in @placemarks -%>
     <tr>
       <td><%= link_to placemark.name, edit_placemark_path(placemark) %></td>
       <td><%= h placemark.address %></td>
     </tr>
+    <%- end -%>
   </tbody>
-<%- end -%>
 </table>
 
-<%= render :partial => "partials/bookmark" %>
-
-<%- else -%>
-
-<h1>Start your journey!</h1>
-<p class="half_width mid_line">It's very simple, just <%= link_to "Sign up here", signup_url %> and start adding your favorite places by surfing around the web. Then you can share with your friends too!</p>
-
 <%- end -%>
+
+<%= render :partial => "partials/bookmark" %>

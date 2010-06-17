@@ -1,7 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :placemarks, :collection => [ :add ]
-
-  map.resources :places, :member => { :rate => :post }, :collection => [ :nonajax_rate ]
 
   map.root :controller => 'welcome'
   map.profile 'profile', :controller => 'users', :action => 'profile'
@@ -9,9 +6,15 @@ ActionController::Routing::Routes.draw do |map|
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
+ 
+  map.resources :placemarks, :collection => [ :add ]
+  map.resources :places, :member => { :rate => :post }, :collection => [ :nonajax_rate ]
   map.resources :sessions
-
   map.resources :users
+
+  map.with_options :controller => :apis do |apis|
+    apis.search '/search', :action => :search
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
 

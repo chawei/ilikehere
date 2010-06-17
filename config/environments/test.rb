@@ -30,6 +30,8 @@ config.action_mailer.delivery_method = :test
 HOST = ''
 
 
+config.gem 'ruby-debug'
+config.gem 'sqlite3-ruby', :lib => 'sqlite3'
 config.gem "thoughtbot-factory_girl",
           :lib    => "factory_girl",
           :source => "http://gems.github.com"

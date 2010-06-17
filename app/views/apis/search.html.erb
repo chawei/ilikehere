@@ -1,0 +1,17 @@
+<%- if @results.blank? -%>
+
+<p>Not matched results</p>
+
+<%- else -%>
+
+<%- for result in @results -%>
+  <div class='result'>
+    <h3><%= result["title"] %></h3>
+    <p>
+      <div class='address'><%= result['address'] %></div>
+      <div class='phone'><%= result['telephone'] %></div>
+    </p>
+  </div>
+<%- end -%>
+
+<%- end -%>
