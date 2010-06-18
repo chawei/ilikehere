@@ -1,17 +1,22 @@
-<%- if @results.blank? -%>
+<% title "Search", false %>
 
-<p>Not matched results</p>
+<div id="search_page">
+  <%- if @results.blank? -%>
 
-<%- else -%>
+  <p>Not matched results</p>
 
-<%- for result in @results -%>
-  <div class='result'>
-    <h3><%= result["title"] %></h3>
-    <p>
+  <%- else -%>
+
+  <%- for result in @results -%>
+    <div class='result'>
+      <h3><%= result["title"] %></h3>
       <div class='address'><%= result['address'] %></div>
       <div class='phone'><%= result['telephone'] %></div>
-    </p>
-  </div>
-<%- end -%>
+      <div class='actions'>
+        <%= link_to 'add to my placemarks', add_result_placemarks_path(result), :method => :post %>
+      </div>
+    </div>
+  <%- end -%>
 
-<%- end -%>
+  <%- end -%>
+</div>

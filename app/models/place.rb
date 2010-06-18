@@ -15,4 +15,10 @@ class Place < ActiveRecord::Base
     placemarks.each { |p| placemarks_ratings << p.rating.to_f }
     return placemarks_ratings.average
   end
+
+  def add_from_result(result)
+    self.name = result['title']
+    self.address = result['address']
+    self.phone_number = result['telephone']
+  end
 end

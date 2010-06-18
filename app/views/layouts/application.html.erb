@@ -41,6 +41,12 @@
           <ul>
             <li><%= link_to 'placemarks', placemarks_url %></li>
           </ul>
+          <div id="search_bar">
+            <% form_tag search_path, :method => :get do %>
+              <%= text_field_tag 'q' %> 
+              <%= submit_tag "search", :class => 'submit_field' %>
+            <% end %>
+          </div>
           <%- end -%>
         </div>
       </div>

@@ -1,7 +1,5 @@
 .DS_Store  
 config/database.yml
-coverage/*  
-log/*  
 lib/tasks/rspec.rake  
 lib/tasks/cucumber.rake  
 db/*.db  
@@ -11,6 +9,8 @@ db/sphinx
 tmp/**/*  
 doc/api  
 doc/app  
-config/database.yml  
 config/*.sphinx.conf  
 coverage/*
+log/*  
+rerun.txt
+mkmf.log

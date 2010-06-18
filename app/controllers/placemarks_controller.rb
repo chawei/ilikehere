@@ -81,4 +81,18 @@ class PlacemarksController < ApplicationController
     end
     redirect_to root_url
   end
+
+  def add_result
+    @place = Place.new
+    @place.add_from_result(params)
+    @placemark = Placemark.new
+    
+    if @place.save and current_user
+      @placemark.place_id = @place.id
+      @placemark.user_id = current_user.id
+      @placemark.alias = @place.name
+      flash[:notice] = "Placemark saved." if @placemark.save
+    end
+    redirect_to :back 
+  end
 end
