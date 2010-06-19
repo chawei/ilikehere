@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       set_geolocation(user)
       session[:user_id] = user.id
       flash[:notice] = "Logged in successfully."
-      redirect_to root_url
+      redirect_to session[:request_uri] || root_url
     else
       flash.now[:error] = "Invalid login or password."
       render :action => 'new'
@@ -28,9 +28,9 @@ class SessionsController < ApplicationController
   private
     def set_geolocation(user)
       if user.preferred_location.blank?
-        location = IpGeocoder.geocode(request.remote_ip)
-        session[:preferred_location] = location.city
-        user.preferred_location = location.city
+        location = GeoIp.geolocation(request.remote_ip)
+        session[:preferred_location] = location[:city]
+        user.preferred_location = location[:city]
         user.save
       else
         session[:preferred_location] = user.preferred_location

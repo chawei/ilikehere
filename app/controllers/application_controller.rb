@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   
   before_filter :login_required
-  before_filter :test_ip
+  before_filter :log_user_ip
   
-  def test_ip
-    logger.info "[INFO] #{request.remote_ip}"
+  def log_user_ip
+    logger.info "[INFO] User from #{request.remote_ip}"
   end
-  
+
 end
