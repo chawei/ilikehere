@@ -56,10 +56,16 @@ namespace :deploy do
   task :default do
     set :migrate_target, :latest
     update_code
+    install_gems
     migrate
     symlink
   end
-  
+
+  desc "Install Gems"
+  task :install_gems do
+    run "cd #{current_path} && rake gems:install"
+  end
+
   desc "Symlink config files"
   task :before_symlink do
     #run "rm #{release_path}/public/.htaccess" #not compatible with Passenger
