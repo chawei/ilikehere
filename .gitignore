@@ -3,7 +3,7 @@ config/database.yml
 lib/tasks/rspec.rake  
 lib/tasks/cucumber.rake  
 db/*.db  
-db/*.sqlite3  
+db/ilikehere_test.sqlite3
 db/schema.rb  
 db/sphinx  
 tmp/**/*  
@@ -11,6 +11,7 @@ doc/api
 doc/app  
 config/*.sphinx.conf  
 coverage/*
+log
 log/*  
 rerun.txt
 mkmf.log
